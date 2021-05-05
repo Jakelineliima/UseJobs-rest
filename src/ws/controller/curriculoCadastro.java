@@ -10,24 +10,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ws.model.Cadastrovaga;
-import ws.repository.CadastroRepository;
-
+import ws.model.Curriculo;
+import ws.repository.curriculoRepository;
 
 @RestController
-public class CadastroVaga {
+public class curriculoCadastro {
 	
 	@Autowired
-	private CadastroRepository cadastroRepository;
+	private curriculoRepository curriculoRepository;
 	
-	@RequestMapping(value= "/cadastrarvaga", method = RequestMethod.GET,
+	@RequestMapping(value= "/interessado", method = RequestMethod.GET,
 			produces = "application/json")
-	public List<Cadastrovaga> Get(){
-		return cadastroRepository.findAll();
+	public List<Curriculo> Get(){
+		return curriculoRepository.findAll();
 	}
-	@RequestMapping(value = "/cadastrarvaga", method = RequestMethod.POST,
+	@RequestMapping(value = "/interessado", method = RequestMethod.POST,
 			consumes = "application/json", produces = "application/json")
-		public Cadastrovaga post(@Valid @RequestBody Cadastrovaga cadastrovaga) {
-				return cadastroRepository.save(cadastrovaga);
-			}
+	public Curriculo post(@Valid @RequestBody Curriculo curriculo) {
+		return curriculoRepository.save(curriculo);
+	}
 }
