@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import ws.model.Curriculo;
-import ws.repository.curriculoRepository;
+import ws.repository.CurriculoRepository;
 
 @RestController
-public class curriculoCadastro {
+public class CurriculoCadastro {
 	
 	@Autowired
-	private curriculoRepository curriculoRepository;
+	private CurriculoRepository curriculoRepository;
 	
-	@RequestMapping(value= "/interessado", method = RequestMethod.GET,
-			produces = "application/json")
-	public List<Curriculo> Get(){
+	@RequestMapping(value = "/interessado", method = RequestMethod.GET,
+			produces="application/json")
+	public List<Curriculo> Get() {
 		return curriculoRepository.findAll();
 	}
 	@RequestMapping(value = "/interessado", method = RequestMethod.POST,
@@ -29,4 +29,6 @@ public class curriculoCadastro {
 	public Curriculo post(@Valid @RequestBody Curriculo curriculo) {
 		return curriculoRepository.save(curriculo);
 	}
+	
+	
 }

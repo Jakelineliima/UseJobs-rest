@@ -19,6 +19,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.GET, "/webjars/**").permitAll()
 			.antMatchers(HttpMethod.POST, "/login").permitAll()
 			.antMatchers(HttpMethod.POST, "/criarconta").permitAll()
+			.antMatchers(HttpMethod.POST, "/interessado").permitAll()
+			
 			.anyRequest().authenticated()
 			.and()
 			

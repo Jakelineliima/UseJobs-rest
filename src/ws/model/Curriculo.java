@@ -1,10 +1,26 @@
 package ws.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Curriculo {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
 	private String nome;
 	private String endereco;
-	private int telefone;
+	private String telefone;
 	private String escolaridade;
 	private String experiencia;
 	public String getNome() {
@@ -19,10 +35,11 @@ public class Curriculo {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public int getTelefone() {
+	
+	public String getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 	public String getEscolaridade() {
