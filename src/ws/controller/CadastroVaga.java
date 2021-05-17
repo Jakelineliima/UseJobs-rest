@@ -59,12 +59,14 @@ public class CadastroVaga {
 			cadastrovaga.setCargo(editVaga.getCargo());
 			cadastrovaga.setEndereco(editVaga.getEndereco());
 			cadastrovaga.setEscolaridade(editVaga.getEscolaridade());
-			cadastrovaga.setExperiencia(editVaga.getEscolaridade());
+			cadastrovaga.setExperiencia(editVaga.getExperiencia());
 			cadastroRepository.save(cadastrovaga);
 			return new ResponseEntity<Cadastrovaga>(cadastrovaga, HttpStatus.OK);
 			} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
 	}
+	
+	
 	
 }

@@ -10,23 +10,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ws.model.Conta;
-import ws.repository.ContaRepository;
+
+import ws.model.Usuario;
+import ws.repository.UsuarioRepository;
 
 @RestController
 public class ContaCadastro {
 	
 	@Autowired
-	private ContaRepository contaRepository;
+	private UsuarioRepository contaRepository;
 	
 	@RequestMapping(value = "criarconta", method = RequestMethod.GET,
 			produces = "application/json")
-	public List<Conta> Get() {
+	public List<Usuario> Get() {
 		return contaRepository.findAll();
 	}
 	@RequestMapping(value = "/criarconta", method = RequestMethod.POST,
 			consumes = "application/json", produces = "application/json")
-	public Conta post(@Valid @RequestBody Conta conta) {
+	public Usuario post(@Valid @RequestBody Usuario conta) {
 		return contaRepository.save(conta);
 	}
+	
+	
+	//Login
+	
+	
+	
 }

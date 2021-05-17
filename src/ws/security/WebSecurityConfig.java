@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -22,6 +23,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.POST, "/interessado").permitAll()
 			.antMatchers(HttpMethod.GET, "/vagas").permitAll()
 			.antMatchers(HttpMethod.PUT, "/vervagas/{id}").permitAll()
+			.antMatchers(HttpMethod.GET, "/cadastrarvaga").permitAll()
+			.antMatchers(HttpMethod.PUT, "/cadastrarvaga/{id}").permitAll()
+			
 			.anyRequest().authenticated()
 			.and()
 			
@@ -33,6 +37,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 			httpSecurity.cors();
 	}
+	
+	
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
