@@ -29,13 +29,14 @@ public class CadastroVaga {
 	public List<Cadastrovaga> Get() {
 		return cadastroRepository.findAll();
 	}
+	
 	@RequestMapping(value = "/cadastrarvaga", method = RequestMethod.POST,
 			consumes = "application/json", produces = "application/json")
 		public Cadastrovaga post(@Valid @RequestBody Cadastrovaga cadastrovaga) {
 				return cadastroRepository.save(cadastrovaga);
 			}
 	
-	
+	/////
 	@RequestMapping(value = "vagas/{id}", method = RequestMethod.GET,
 			produces = "application/json")
 	public ResponseEntity<Cadastrovaga> getPorCodigo(@PathVariable(value = "id") long id){
@@ -47,9 +48,10 @@ public class CadastroVaga {
 		}
 	}
 	
-	@RequestMapping(value = "/vagas{id}", method = RequestMethod.PUT,
+	
+	@RequestMapping(value = "/usuariolog/{id}", method = RequestMethod.PUT,
 			consumes = "application/json", produces = "application/json")
-	public ResponseEntity<Cadastrovaga> put(@PathVariable(value = "id")long id,
+	public ResponseEntity<Cadastrovaga> put(@PathVariable(value = "id") long id,
 			@Valid @RequestBody Cadastrovaga editVaga){
 		Optional<Cadastrovaga> antigaVaga = cadastroRepository.findById(id);
 		if(antigaVaga.isPresent()) {
@@ -66,7 +68,17 @@ public class CadastroVaga {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
 	}
-	
-	
+
+	@RequestMapping(value = "/usuariolog/{id}", method = RequestMethod.DELETE,
+			produces = "application/json")
+	public ResponseEntity<Object> delete(@PathVariable(value = "id") long id){
+		Optional<Cadastrovaga> cadastrovaga = cadastroRepository.findById(id);
+		if (cadastrovaga.isPresent()) {
+			cadastroRepository.delete(cadastrovaga.get());
+			return new ResponseEntity<>(HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 	
 }

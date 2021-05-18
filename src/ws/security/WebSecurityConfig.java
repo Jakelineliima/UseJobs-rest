@@ -23,8 +23,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers(HttpMethod.POST, "/interessado").permitAll()
 			.antMatchers(HttpMethod.GET, "/vagas").permitAll()
 			.antMatchers(HttpMethod.PUT, "/vervagas/{id}").permitAll()
-			.antMatchers(HttpMethod.GET, "/cadastrarvaga").permitAll()
-			.antMatchers(HttpMethod.PUT, "/cadastrarvaga/{id}").permitAll()
+			.antMatchers(HttpMethod.GET, "/usuariolog").permitAll()
+			.antMatchers(HttpMethod.PUT, "/usuariolog/{id}").permitAll()
+			.antMatchers(HttpMethod.GET, "/usuarioint").permitAll()
+			.antMatchers(HttpMethod.PUT, "/usuarioint/{id}").permitAll()
+			
+			
 			
 			.anyRequest().authenticated()
 			.and()
