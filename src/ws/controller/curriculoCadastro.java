@@ -29,7 +29,7 @@ public class CurriculoCadastro {
 	public List<Curriculo> Get() {
 		return curriculoRepository.findAll();
 	}
-	@RequestMapping(value = "/usuarioint", method = RequestMethod.POST,
+	@RequestMapping(value = "/interessado", method = RequestMethod.POST,
 			consumes = "application/json", produces = "application/json")
 	public Curriculo post(@Valid @RequestBody Curriculo curriculo) {
 		return curriculoRepository.save(curriculo);

@@ -73,7 +73,7 @@ public class CadastroVaga {
 			produces = "application/json")
 	public ResponseEntity<Object> delete(@PathVariable(value = "id") long id){
 		Optional<Cadastrovaga> cadastrovaga = cadastroRepository.findById(id);
-		if (cadastrovaga.isPresent()) {
+		if(cadastrovaga.isPresent()) {
 			cadastroRepository.delete(cadastrovaga.get());
 			return new ResponseEntity<>(HttpStatus.OK);
 		} else {
