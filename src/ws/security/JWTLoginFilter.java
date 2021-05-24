@@ -19,8 +19,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ws.model.Usuario;
 
-
-
 public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
 
 	protected JWTLoginFilter(String url, AuthenticationManager authManager) {

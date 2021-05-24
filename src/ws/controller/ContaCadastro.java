@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,10 +31,13 @@ public class ContaCadastro {
 		return usuarioRepository.findAll();
 	}
 	@RequestMapping(value = "/criarconta", method = RequestMethod.POST,
-			consumes = "application/json", produces = "application/json")
-	public Usuario post(@Valid @RequestBody Usuario conta) {
-		return usuarioRepository.save(conta);
-	}
+            consumes = "application/json", produces = "application/json")
+    public Usuario post(@Valid @RequestBody Usuario conta) {       
+        BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+        String senha = bcrypt.encode(conta.getPassword());
+        conta.setPassword(senha);
+        return usuarioRepository.save(conta);
+    }
 	
 	
 	@RequestMapping(value = "userdados/{id}", method = RequestMethod.GET,
