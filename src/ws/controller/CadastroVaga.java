@@ -18,6 +18,7 @@ import ws.model.Cadastrovaga;
 import ws.repository.CadastroRepository;
 
 
+
 @RestController
 public class CadastroVaga {
 	
