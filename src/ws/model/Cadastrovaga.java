@@ -18,6 +18,8 @@ public class Cadastrovaga {
 	private String escolaridade;
 	private String cargo;
 	private String experiencia;
+	private int iduser;
+
 	public long getId() {
 		return id;
 	}
@@ -60,5 +62,17 @@ public class Cadastrovaga {
 	}
 	public void setExperiencia(String experiencia) {
 		this.experiencia = experiencia;
+	}
+	/**
+	 * @return the iduser
+	 */
+	public int getIduser() {
+		return iduser;
+	}
+	/**
+	 * @param iduser the iduser to set
+	 */
+	public void setIduser(int iduser) {
+		this.iduser = iduser;
 	}
 }
